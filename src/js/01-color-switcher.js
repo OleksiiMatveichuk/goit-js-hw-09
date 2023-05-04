@@ -2,6 +2,7 @@ const btnStart = document.querySelector('[data-start]');
 const btnStop = document.querySelector('[data-stop]');
 const body = document.body;
 let id = 0;
+btnStop.disabled = true;
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -14,10 +15,12 @@ const clickStart = ev => {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
   btnStart.disabled = true;
+  btnStop.disabled = false;
 };
 
 const clickStop = ev => {
   btnStart.disabled = false;
+  btnStop.disabled = true;
   clearInterval(id);
 };
 
